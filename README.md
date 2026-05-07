@@ -7,7 +7,7 @@ Compose files for serving GGUF models via [llama.cpp](https://github.com/ggml-or
 | File | Engine | Hardware | Image |
 |---|---|---|---|
 | [compose-llama-cpp-cpu.yaml](compose-llama-cpp-cpu.yaml) | llama.cpp server | CPU only | `ghcr.io/ggml-org/llama.cpp:server-b9038` |
-| [compose-llama-cpp-gpu.yaml](compose-llama-cpp-gpu.yaml) | llama.cpp server | NVIDIA GPU (CUDA) | `ghcr.io/ggml-org/llama.cpp:server-cuda-b9038` |
+| [compose-llama-cpp-gpu.yaml](compose-llama-cpp-gpu.yaml) | llama.cpp server | NVIDIA GPU | `ghcr.io/ggml-org/llama.cpp:server-cuda-b9038` |
 | [compose-vllm-gpu.yaml](compose-vllm-gpu.yaml) | vLLM OpenAI server | NVIDIA GPU | `vllm/vllm-openai:v0.19.0` |
 
 All three default to `unsloth/Qwen3-14B-GGUF` (IQ4_XS).

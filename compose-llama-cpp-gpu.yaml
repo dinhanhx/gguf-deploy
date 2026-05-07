@@ -27,6 +27,7 @@ services:
       LLAMA_ARG_CONT_BATCHING: "1"
       LLAMA_ARG_FLASH_ATTN: "1"
       LLAMA_ARG_ENDPOINT_METRICS: "1"
+      LLAMA_ARG_KV_UNIFIED: "1"
     deploy:
       resources:
         reservations:

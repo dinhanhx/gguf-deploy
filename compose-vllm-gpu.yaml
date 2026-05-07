@@ -1,0 +1,32 @@
+services:
+  vllm-openai:
+    volumes:
+    - ${PWD}/.cache/:/root/.cache/
+    ports:
+    - 8791:8000
+    env_file:
+    - path: ${PWD}/.env
+    image: vllm/vllm-openai:v0.19.0
+    command: |
+      --model unsloth/Qwen3-14B-GGUF:IQ4_XS
+      --tokenizer Qwen/Qwen3-14B
+      --load-format gguf
+      --quantization gguf
+      --runner generate
+      --dtype bfloat16
+      --max-model-len 8192
+      --max-num-seqs 1
+      --gpu-memory-utilization 0.90
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [ gpu ]
+    ipc: host
+    shm_size: '16gb'
+    cap_add:
+    - SYS_NICE
+    security_opt:
+    - seccomp=unconfined
